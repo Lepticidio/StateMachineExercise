@@ -1,3 +1,15 @@
+
+function createImage(texture_name, char_size)
+	local gfxQuad = MOAIGfxQuad2D.new()
+	gfxQuad:setTexture(texture_name)
+    if char_size == nil then
+        char_size = 64
+    end
+	gfxQuad:setRect(-char_size/2, -char_size/2, char_size/2, char_size/2)
+	gfxQuad:setUVRect(0, 0, 1, 1)
+	return gfxQuad
+end
+
 MOAISim.openWindow("game", 1024, 768)
 
 viewport = MOAIViewport.new()
@@ -9,12 +21,9 @@ layer:setViewport(viewport)
 MOAISim.pushRenderPass(layer)
 
 --Texture of enemy character
-texture_name = "mago.png"
-gfxQuad = MOAIGfxQuad2D.new()
-gfxQuad:setTexture(texture_name)
-char_size = 32
-gfxQuad:setRect(-char_size/2, -char_size/2, char_size/2, char_size/2)
-gfxQuad:setUVRect(0, 0, 1, 1)
+
+
+gfxQuad = createImage("mago.png", 32)
 
 prop = MOAIProp2D.new()
 prop:setDeck(gfxQuad)
@@ -30,18 +39,20 @@ enemy:setRot(0)
 enemy:setLinearVel(100, 0)
 --entity:setAngularVel(30)
 
---Texture of player character
-texture_name = "ghost32.png"
-gfxQuad = MOAIGfxQuad2D.new()
-gfxQuad:setTexture(texture_name)
-char_size = 32
-gfxQuad:setRect(-char_size/2, -char_size/2, char_size/2, char_size/2)
-gfxQuad:setUVRect(0, 0, 1, 1)
+--Texture of dragon character
+gfxQuad = createImage("dragon.png", 64)
+gfxQuad1 = createImage("dragonDead.png", 64)
+gfxQuad2 = createImage("dragonAttack.png", 64)
 
 prop = MOAIProp2D.new()
 prop:setDeck(gfxQuad)
+entity  = Character.new()
 
-entity = Character.new()
+-- Add prop to be the renderable for this character
+entity:addImage(gfxQuad)    -- SetImage(0)  dragon.png
+entity:addImage(gfxQuad1)   -- SetImage(1)  dragonDead.png
+entity:addImage(gfxQuad2)   -- SetImage(2)  dragonAttack.png
+
 -- Add prop to be the renderable for this character
 entity:setProp(prop, layer)
 entity:checkIsEnemy(false, enemy);
