@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="character.cpp" />
+    <ClCompile Include="gameConfig.cpp" />
+    <ClCompile Include="host\FolderWatcher-win.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\GlutHost.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\GlutHostMain.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\ParticlePresets.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="params.cpp" />
+    <ClCompile Include="Path.cpp" />
+    <ClCompile Include="AlignSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="AlignToMovement.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="ArriveSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFollowingSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="PursueSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="Condition.cpp" />
+    <ClCompile Include="Transition.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="SM.cpp" />
+    <ClCompile Include="AndCondition.cpp" />
+    <ClCompile Include="OrCondition.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="character.h" />
+    <ClInclude Include="gameConfig.h" />
+    <ClInclude Include="host\FolderWatcher-win.h">
+      <Filter>host</Filter>
+    </ClInclude>
+    <ClInclude Include="host\GlutHost.h">
+      <Filter>host</Filter>
+    </ClInclude>
+    <ClInclude Include="host\ParticlePresets.h">
+      <Filter>host</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="params.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="AlignSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="AlignToMovement.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="ArriveSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFollowingSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="PursueSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="Condition.h" />
+    <ClInclude Include="Transition.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="SM.h" />
+    <ClInclude Include="AndCondition.h" />
+    <ClInclude Include="OrCondition.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="host">
+      <UniqueIdentifier>{87717a51-4516-4c06-a1de-c6b89a5c16e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sample">
+      <UniqueIdentifier>{dafee91e-18b1-4dd7-a488-726565484f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steerings">
+      <UniqueIdentifier>{583b4ddb-86de-4f11-875e-c372cb83a384}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sample\test.lua">
+      <Filter>sample</Filter>
+    </None>
+  </ItemGroup>
+</Project>
