@@ -17,13 +17,32 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="params.cpp" />
-    <ClCompile Include="SeekSteering.cpp" />
-    <ClCompile Include="AlignSteering.cpp" />
-    <ClCompile Include="ArriveSteering.cpp" />
-    <ClCompile Include="AlignToMovement.cpp" />
     <ClCompile Include="Path.cpp" />
-    <ClCompile Include="PathFollowingSteering.cpp" />
-    <ClCompile Include="PursueSteering.cpp" />
+    <ClCompile Include="AlignSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="AlignToMovement.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="ArriveSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFollowingSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="PursueSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekSteering.cpp">
+      <Filter>Steerings</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="Condition.cpp" />
+    <ClCompile Include="Transition.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="SM.cpp" />
+    <ClCompile Include="AndCondition.cpp" />
+    <ClCompile Include="OrCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -39,13 +58,32 @@
     </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="params.h" />
-    <ClInclude Include="SeekSteering.h" />
-    <ClInclude Include="AlignSteering.h" />
-    <ClInclude Include="ArriveSteering.h" />
-    <ClInclude Include="AlignToMovement.h" />
     <ClInclude Include="Path.h" />
-    <ClInclude Include="PathFollowingSteering.h" />
-    <ClInclude Include="PursueSteering.h" />
+    <ClInclude Include="AlignSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="AlignToMovement.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="ArriveSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFollowingSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="PursueSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekSteering.h">
+      <Filter>Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="Condition.h" />
+    <ClInclude Include="Transition.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="SM.h" />
+    <ClInclude Include="AndCondition.h" />
+    <ClInclude Include="OrCondition.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="host">
@@ -53,6 +91,9 @@
     </Filter>
     <Filter Include="sample">
       <UniqueIdentifier>{dafee91e-18b1-4dd7-a488-726565484f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steerings">
+      <UniqueIdentifier>{583b4ddb-86de-4f11-875e-c372cb83a384}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

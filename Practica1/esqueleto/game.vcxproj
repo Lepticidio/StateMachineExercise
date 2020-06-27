@@ -124,39 +124,53 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="AlignSteering.cpp" />
     <ClCompile Include="AlignToMovement.cpp" />
+    <ClCompile Include="AndCondition.cpp" />
     <ClCompile Include="ArriveSteering.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="Condition.cpp" />
     <ClCompile Include="gameConfig.cpp" />
     <ClCompile Include="host\FolderWatcher-win.cpp" />
     <ClCompile Include="host\GlutHost.cpp" />
     <ClCompile Include="host\GlutHostMain.cpp" />
     <ClCompile Include="host\ParticlePresets.cpp" />
+    <ClCompile Include="OrCondition.cpp" />
     <ClCompile Include="params.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PathFollowingSteering.cpp" />
     <ClCompile Include="PursueSteering.cpp" />
     <ClCompile Include="SeekSteering.cpp" />
+    <ClCompile Include="SM.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Transition.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="AlignSteering.h" />
     <ClInclude Include="AlignToMovement.h" />
+    <ClInclude Include="AndCondition.h" />
     <ClInclude Include="ArriveSteering.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="Condition.h" />
     <ClInclude Include="gameConfig.h" />
     <ClInclude Include="host\FolderWatcher-win.h" />
     <ClInclude Include="host\GlutHost.h" />
     <ClInclude Include="host\ParticlePresets.h" />
+    <ClInclude Include="OrCondition.h" />
     <ClInclude Include="params.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PathFollowingSteering.h" />
     <ClInclude Include="PursueSteering.h" />
     <ClInclude Include="SeekSteering.h" />
+    <ClInclude Include="SM.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Transition.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sample\test.lua" />
