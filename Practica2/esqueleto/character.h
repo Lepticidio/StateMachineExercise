@@ -31,6 +31,8 @@ public:
 	void SetIsEnemy(bool _bIsEnemy) { m_bIsEnemy = _bIsEnemy;}
 	void SetPursuedCharacter(Character* _pPursued);
 	
+	static USVec2D RotateVector(USVec2D _vInitialVector, float _fAngle);
+	static float AngleBetweenVectors(USVec2D _v0, USVec2D _v1);
 	USVec2D GetLinearVelocity() const { return mLinearVelocity;}
 	float GetAngularVelocity() const { return mAngularVelocity;}
 private:

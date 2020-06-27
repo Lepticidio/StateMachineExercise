@@ -8,12 +8,18 @@
 #include "AlignToMovement.h"
 #include "PathFollowingSteering.h"
 
-
-USVec2D RotateVector(USVec2D _vInitialVector, float _fAngle)
+USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 {
-	return USVec2D(cos(_fAngle) * _vInitialVector.mX - sin(_fAngle) * _vInitialVector.mY, sin(_fAngle) * _vInitialVector.mX + cos(_fAngle) * _vInitialVector.mY);
+	float fRadians = _fAngle / 57.2958f;
+	return USVec2D(cos(fRadians) * _vInitialVector.mX - sin(fRadians) * _vInitialVector.mY, sin(fRadians) * _vInitialVector.mX + cos(fRadians) * _vInitialVector.mY);
 }
-
+float Character::AngleBetweenVectors(USVec2D _v0, USVec2D _v1)
+{
+	float fDot = _v0.Dot(_v1);
+	float fAngle = acos(fDot);
+	float fDegrees = fAngle* 57.2958f;
+	return fDegrees;
+}
 
 Character::Character() : mLinearVelocity(00.0f, 0.0f), mAngularVelocity(0.0f)
 {
