@@ -7,11 +7,16 @@
 #include "PursueSteering.h"
 #include "AlignToMovement.h"
 #include "ArriveSteering.h"
+
 #include "SM.h"
 #include "ActionIdle.h"
 #include "ActionPursue.h"
 #include "CanSeeEnemy.h"
 #include "NotCondition.h"
+#include "ActionWindup.h"
+#include "AttackAction.h"
+#include "CooldownTimeCondition.h"
+#include "NearCondition.h"
 
 USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 {
@@ -197,6 +202,40 @@ int Character::_checkIsEnemy(lua_State* L)
 		pPursueToIdle->setCondition(pCanNotSee);
 		pPursueToIdle->setTargetState(idleState);
 		pursueState->AddTransition(pPursueToIdle);
+
+		State* pWindup = new State();
+		ActionWindup* pWindupAction = new ActionWindup(self);
+		pWindup->SetStateAction(pWindupAction);
+
+		State* pAttack = new State();
+		AttackAction* pAttackAction = new AttackAction(self, pToBePursued);
+		pAttack->SetStateAction(pAttackAction);
+
+		NearCondition* pNear = new NearCondition(self, pToBePursued);
+		Transition* pAlertToWindup = new Transition();
+		pAlertToWindup->setCondition(pNear);
+		pAlertToWindup->setTargetState(pWindup);
+		pursueState->AddTransition(pAlertToWindup);
+
+		NotCondition* pNotNear = new NotCondition(pNear);
+		Transition* pAttackToAlert = new Transition();
+		pAttackToAlert->setCondition(pNotNear);
+		pAttackToAlert->setTargetState(pursueState);
+		pWindup->AddTransition(pAttackToAlert);
+		pAttack->AddTransition(pAttackToAlert);
+
+		CooldownTimeCondition* pWindupCooldown = new CooldownTimeCondition(self, 0.5f);
+		Transition* pWindupToAttack = new Transition();
+		pWindupToAttack->setCondition(pWindupCooldown);
+		pWindupToAttack->setTargetState(pAttack);
+		pWindup->AddTransition(pWindupToAttack);
+
+		CooldownTimeCondition* pAttackCooldown = new CooldownTimeCondition(self, 1.0f);
+		Transition* pAttackToCooldown = new Transition();
+		pAttackToCooldown->setCondition(pAttackCooldown);
+		pAttackToCooldown->setTargetState(pWindup);
+		pAttack->AddTransition(pAttackToCooldown);
+
 
 		SM* pDragonStateMachine = new SM();
 		pDragonStateMachine->start(idleState);

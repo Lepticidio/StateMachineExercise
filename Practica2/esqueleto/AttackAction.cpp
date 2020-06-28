@@ -8,14 +8,12 @@ AttackAction::AttackAction(Character* _pOwner, Character* _pTarget) : m_pOwner(_
 void AttackAction::start() const
 {
 	m_pOwner->SetImage(3);
+	m_pTarget->TakeDamage(m_fDamage);
+	m_pOwner->SetCooldownTime(0);
 }
 void AttackAction::update()const
 {
 	m_pOwner->IncreaseTime();
-	if (m_pOwner->GetCooldownTime() > m_fAttackTime)
-	{
-		m_pTarget->TakeDamage(m_fDamage);
-	}
 
 }
 void AttackAction::end()const
