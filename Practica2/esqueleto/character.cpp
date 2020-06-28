@@ -11,12 +11,15 @@
 #include "SM.h"
 #include "ActionIdle.h"
 #include "ActionPursue.h"
-#include "CanSeeEnemy.h"
-#include "NotCondition.h"
 #include "ActionWindup.h"
+#include "AndCondition.h"
 #include "AttackAction.h"
+#include "CanSeeEnemy.h"
 #include "CooldownTimeCondition.h"
 #include "NearCondition.h"
+#include "NotCondition.h"
+#include "OrCondition.h"
+#include "OtherIsAliveCondition.h"
 
 USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 {
@@ -190,6 +193,9 @@ int Character::_checkIsEnemy(lua_State* L)
 		self->SetParamsName("params_enemy.xml");
 		//self->SetPursuedCharacter(pToBePursued);
 
+		OtherIsAliveCondition* pOtherIsAlive = new OtherIsAliveCondition(pToBePursued);
+		NotCondition* pOtherIsNotAlive = new NotCondition(pOtherIsAlive);
+
 		State* idleState = new State();
 		ActionIdle* idleAction = new ActionIdle(self);
 		idleState->SetStateAction(idleAction);
@@ -199,14 +205,16 @@ int Character::_checkIsEnemy(lua_State* L)
 		pursueState->SetStateAction(pursueAction);
 
 		CanSeeEnemy* pCanSee = new CanSeeEnemy(self, pToBePursued);
+		AndCondition* pCanSeeAndAlive = new AndCondition(pOtherIsAlive, pCanSee);
 		Transition* pIdleToPursue = new Transition();
-		pIdleToPursue->setCondition(pCanSee);
+		pIdleToPursue->setCondition(pCanSeeAndAlive);
 		pIdleToPursue->setTargetState(pursueState);
 		idleState->AddTransition(pIdleToPursue);
 
 		NotCondition* pCanNotSee = new NotCondition(pCanSee);
+		OrCondition* pCanNotSeeOrNotAlive = new OrCondition(pCanNotSee, pOtherIsNotAlive);
 		Transition* pPursueToIdle = new Transition();
-		pPursueToIdle->setCondition(pCanNotSee);
+		pPursueToIdle->setCondition(pCanNotSeeOrNotAlive);
 		pPursueToIdle->setTargetState(idleState);
 		pursueState->AddTransition(pPursueToIdle);
 
@@ -242,6 +250,12 @@ int Character::_checkIsEnemy(lua_State* L)
 		pAttackToCooldown->setCondition(pAttackCooldown);
 		pAttackToCooldown->setTargetState(pWindup);
 		pAttack->AddTransition(pAttackToCooldown);
+
+		Transition* pAttackToIdle = new Transition();
+		pAttackToIdle->setCondition(pOtherIsNotAlive);
+		pAttackToIdle->setTargetState(idleState);
+		pWindup->AddTransition(pAttackToIdle);
+		pAttack->AddTransition(pAttackToIdle);
 
 
 		SM* pDragonStateMachine = new SM();

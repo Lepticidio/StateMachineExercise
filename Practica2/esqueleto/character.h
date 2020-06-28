@@ -36,6 +36,7 @@ public:
 	static USVec2D RotateVector(USVec2D _vInitialVector, float _fAngle);
 	static float AngleBetweenVectors(USVec2D _v0, USVec2D _v1);
 	float GetCooldownTime() { return m_fCooldownTime; }
+	float GetHealth() { return m_fHealth; }
 	float GetAngularVelocity() const { return mAngularVelocity;}
 	USVec2D GetLinearVelocity() const { return mLinearVelocity; }
 private:

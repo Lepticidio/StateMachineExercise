@@ -1,6 +1,6 @@
 #pragma once
 #include "Condition.h"
-class OrCondition : Condition
+class OrCondition : public Condition
 {
 public:
 	OrCondition(Condition* c1, Condition* c2);

@@ -145,6 +145,7 @@
     <ClCompile Include="NearCondition.cpp" />
     <ClCompile Include="NotCondition.cpp" />
     <ClCompile Include="OrCondition.cpp" />
+    <ClCompile Include="OtherIsAliveCondition.cpp" />
     <ClCompile Include="params.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PathFollowingSteering.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="NearCondition.h" />
     <ClInclude Include="NotCondition.h" />
     <ClInclude Include="OrCondition.h" />
+    <ClInclude Include="OtherIsAliveCondition.h" />
     <ClInclude Include="params.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PathFollowingSteering.h" />

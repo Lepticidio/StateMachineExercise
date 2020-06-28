@@ -51,6 +51,7 @@
     <ClCompile Include="ActionWindup.cpp" />
     <ClCompile Include="NearCondition.cpp" />
     <ClCompile Include="CooldownTimeCondition.cpp" />
+    <ClCompile Include="OtherIsAliveCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -100,6 +101,7 @@
     <ClInclude Include="ActionWindup.h" />
     <ClInclude Include="NearCondition.h" />
     <ClInclude Include="CooldownTimeCondition.h" />
+    <ClInclude Include="OtherIsAliveCondition.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="host">
