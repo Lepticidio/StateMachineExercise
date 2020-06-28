@@ -45,6 +45,7 @@
     <ClCompile Include="OrCondition.cpp" />
     <ClCompile Include="CanSeeEnemy.cpp" />
     <ClCompile Include="ActionIdle.cpp" />
+    <ClCompile Include="ActionPursue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -88,6 +89,7 @@
     <ClInclude Include="OrCondition.h" />
     <ClInclude Include="CanSeeEnemy.h" />
     <ClInclude Include="ActionIdle.h" />
+    <ClInclude Include="ActionPursue.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="host">
