@@ -7,6 +7,9 @@ bool Transition::canTrigger()
 }
 State* Transition::trigger()
 {
-	m_triggerAction->start();
+	if (m_triggerAction != nullptr)
+	{
+		m_triggerAction->start();
+	}
 	return m_targetState;
 }

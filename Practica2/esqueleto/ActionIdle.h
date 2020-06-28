@@ -7,7 +7,9 @@ class ActionIdle : public Action
 	Character* m_pOwner;
 public:
 	ActionIdle(Character* _pOwner);
-	void start();
+	void start() const;
+	void update() const;
+	void end() const;
 
 };
 

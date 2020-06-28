@@ -178,7 +178,7 @@ int Character::_checkIsEnemy(lua_State* L)
 
 		State* pursueState = new State();
 		ActionPursue* pursueAction = new ActionPursue(self, pToBePursued);
-		idleState->SetStateAction(pursueAction);
+		pursueState->SetStateAction(pursueAction);
 
 		CanSeeEnemy* pCanSee = new CanSeeEnemy(self, pToBePursued);
 		Transition* pIdleToPursue = new Transition();
