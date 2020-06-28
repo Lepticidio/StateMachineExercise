@@ -4,7 +4,7 @@
 
 NearCondition::NearCondition(Character* _pOwner, Character* _pOther) : m_pOwner(_pOwner), m_pOther(_pOther)
 {
-	m_fMinDistance = 150;
+	m_fMinDistance = 75;
 }
 bool  NearCondition::check()  const
 {

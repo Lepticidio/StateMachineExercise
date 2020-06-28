@@ -15,9 +15,6 @@ void ActionPursue::start() const
 void ActionPursue::update()const
 {
 	USVec2D vAcceleration = m_pPursueSteering->GetSteering();
-
-	//USVec2D vAcceleration = m_pPathSteering->GetSteering();
-	//USVec2D vAcceleration (0,0);
 	USVec2D vCurrentVelocity = m_pOwner->GetLinearVelocity() + vAcceleration * m_pOwner->GetLastStep();
 	m_pOwner->SetLinearVelocity(vCurrentVelocity.mX, vCurrentVelocity.mY);
 	m_pOwner->SetLoc(m_pOwner->GetLoc() + m_pOwner->GetLinearVelocity() * m_pOwner->GetLastStep());

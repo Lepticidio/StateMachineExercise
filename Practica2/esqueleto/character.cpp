@@ -219,7 +219,7 @@ int Character::_checkIsEnemy(lua_State* L)
 		pursueState->AddTransition(pPursueToIdle);
 
 		State* pWindup = new State();
-		ActionWindup* pWindupAction = new ActionWindup(self);
+		ActionWindup* pWindupAction = new ActionWindup(self, pToBePursued);
 		pWindup->SetStateAction(pWindupAction);
 
 		State* pAttack = new State();
@@ -227,14 +227,16 @@ int Character::_checkIsEnemy(lua_State* L)
 		pAttack->SetStateAction(pAttackAction);
 
 		NearCondition* pNear = new NearCondition(self, pToBePursued);
+		AndCondition* pNearAndCanSee = new AndCondition(pNear, pCanSee);
 		Transition* pAlertToWindup = new Transition();
-		pAlertToWindup->setCondition(pNear);
+		pAlertToWindup->setCondition(pNearAndCanSee);
 		pAlertToWindup->setTargetState(pWindup);
 		pursueState->AddTransition(pAlertToWindup);
 
 		NotCondition* pNotNear = new NotCondition(pNear);
+		OrCondition* pNotNearOrNotSee = new OrCondition(pNotNear, pCanNotSee);
 		Transition* pAttackToAlert = new Transition();
-		pAttackToAlert->setCondition(pNotNear);
+		pAttackToAlert->setCondition(pNotNearOrNotSee);
 		pAttackToAlert->setTargetState(pursueState);
 		pWindup->AddTransition(pAttackToAlert);
 		pAttack->AddTransition(pAttackToAlert);
