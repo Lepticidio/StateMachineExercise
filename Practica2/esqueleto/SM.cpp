@@ -1,7 +1,7 @@
 #include "SM.h"
-void SM::start()
+void SM::start(State* _pInitialState)
 {
-	m_currentState = m_initialState;
+	m_currentState = _pInitialState;
 	m_currentState->onEnter();
 
 }

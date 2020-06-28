@@ -4,10 +4,10 @@
 class SM
 {
 	std::vector<State*> m_States;
-	State* m_currentState,* m_initialState;
+	State* m_currentState;
 public:
 	void load();
-	void start();
+	void start(State* _pInitialState);
 	void update();
 };
 

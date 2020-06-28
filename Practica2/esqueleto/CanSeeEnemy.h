@@ -3,7 +3,7 @@
 #include <stdafx.h>
 
 class Character;
-class CanSeeEnemy : Condition
+class CanSeeEnemy : public Condition
 {
 	float m_fMaxAngle;
 	Character* m_pEnemy;

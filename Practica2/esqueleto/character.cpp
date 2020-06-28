@@ -7,6 +7,10 @@
 #include "PursueSteering.h"
 #include "AlignToMovement.h"
 #include "ArriveSteering.h"
+#include "SM.h"
+#include "ActionIdle.h"
+#include "ActionPursue.h"
+#include "CanSeeEnemy.h"
 
 USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 {
@@ -76,7 +80,7 @@ void Character::OnUpdate(float step)
 	}
 	else
 	{
-		//vAcceleration = m_pPursueSteering->GetSteering();
+		m_pSM->update();
 	}
 	//USVec2D vAcceleration = m_pPathSteering->GetSteering();
 	//USVec2D vAcceleration (0,0);
@@ -167,6 +171,25 @@ int Character::_checkIsEnemy(lua_State* L)
 		Character* pToBePursued = state.GetLuaObject<Character>(3, 0.0f);
 		self->SetParamsName("params_enemy.xml");
 		//self->SetPursuedCharacter(pToBePursued);
+
+		State* idleState = new State();
+		ActionIdle* idleAction = new ActionIdle(self);
+		idleState->SetStateAction(idleAction);
+
+		State* pursueState = new State();
+		ActionPursue* pursueAction = new ActionPursue(self, pToBePursued);
+		idleState->SetStateAction(pursueAction);
+
+		CanSeeEnemy* pCanSee = new CanSeeEnemy(self, pToBePursued);
+		Transition* pIdleToPursue = new Transition();
+		pIdleToPursue->setCondition(pCanSee);
+		pIdleToPursue->setTargetState(pursueState);
+
+		SM* pDragonStateMachine = new SM();
+		pDragonStateMachine->start(idleState);
+		self->setSM(pDragonStateMachine);
+
+
 	}
 
 	return 0;

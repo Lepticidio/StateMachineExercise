@@ -10,6 +10,7 @@ class AlignSteering;
 class AlignToMovement;
 class PathFollowingSteering;
 class Path;
+class SM;
 class Character: public MOAIEntity2D
 {
 public:
@@ -53,6 +54,7 @@ private:
 	Path* m_pPath;
 	std::string m_sParamsName;
 	bool m_bIsEnemy = false;
+	SM* m_pSM;
 	
 	// Lua configuration
 public:
@@ -60,6 +62,7 @@ public:
 	inline Params GetParams() { return mParams; };
 	float GetLastStep() { return m_fLastStep; }
 	ArriveSteering* GetArrive() { return m_pArrive; }
+	void setSM(SM* _pSM) { m_pSM = _pSM; };
 private:
 	static int _setLinearVel(lua_State* L);
 	static int _setAngularVel(lua_State* L);

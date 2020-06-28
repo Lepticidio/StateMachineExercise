@@ -12,6 +12,10 @@ public:
 	void update();
 	void onExit();
 	const std::vector<Transition>& getTransitions();
+	void SetEnterAction(Action* _pAction) { m_enterAction = _pAction; };
+	void SetExitAction(Action* _pAction) { m_exitAction = _pAction; };
+	void SetStateAction(Action* _pAction) { m_stateAction = _pAction; };
+
 
 };
 
