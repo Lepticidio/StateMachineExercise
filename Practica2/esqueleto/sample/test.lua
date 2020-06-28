@@ -24,11 +24,16 @@ MOAISim.pushRenderPass(layer)
 
 
 gfxQuad = createImage("mago.png", 32)
+gfxQuad1 = createImage("skeleton.png", 32)
 
 prop = MOAIProp2D.new()
 prop:setDeck(gfxQuad)
-
 enemy = Character.new()
+
+-- Add prop to be the renderable for this character
+enemy:addImage(gfxQuad)    -- SetImage(0)  alive
+enemy:addImage(gfxQuad1)   -- SetImage(1)  death
+
 -- Add prop to be the renderable for this character
 enemy:setProp(prop, layer)
 enemy:checkIsEnemy(true)

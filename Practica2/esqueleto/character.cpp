@@ -89,6 +89,13 @@ void Character::OnUpdate(float step)
 	{
 		m_pSM->update();
 	}
+	if (m_fHealth <= 0)
+	{
+		m_fHealth = 0;
+		SetImage(1);
+		vAcceleration = USVec2D(0, 0);
+		SetLinearVelocity(0, 0);
+	}
 	//USVec2D vAcceleration = m_pPathSteering->GetSteering();
 	//USVec2D vAcceleration (0,0);
 	USVec2D vCurrentVelocity = GetLinearVelocity() + vAcceleration * step;
@@ -119,12 +126,12 @@ void Character::OnUpdate(float step)
 
 void Character::DrawDebug()
 {
-	MOAIGfxDevice& gfxDevice = MOAIGfxDevice::Get();
+	//MOAIGfxDevice& gfxDevice = MOAIGfxDevice::Get();
 	//m_pSeek->DrawDebug();
-	m_pArrive->DrawDebug();
+	//m_pArrive->DrawDebug();
 	//m_pPath->DrawDebug();
-	gfxDevice.SetPenColor(1.0f, 1.0f, 0.0f, 0.5f);
-	MOAIDraw::DrawLine(GetLoc(), GetLoc() + GetLinearVelocity());
+	//gfxDevice.SetPenColor(1.0f, 1.0f, 0.0f, 0.5f);
+	//MOAIDraw::DrawLine(GetLoc(), GetLoc() + GetLinearVelocity());
 }
 void Character::IncreaseTime()
 {
