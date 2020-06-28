@@ -1,8 +1,5 @@
+#include "stdafx.h"
 #include "SM.h"
-#include <stdafx.h>
-#include <vector>
-#include "Transition.h"
-#include "State.h"
 void SM::start(State* _pInitialState)
 {
 	m_currentState = _pInitialState;

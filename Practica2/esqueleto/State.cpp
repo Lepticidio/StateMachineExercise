@@ -1,6 +1,5 @@
+#include "stdafx.h"
 #include "State.h"
-#include <stdafx.h>
-#include "Transition.h"
 void State::onEnter()
 {
 	m_enterAction->start();

@@ -1,6 +1,6 @@
+#include "stdafx.h"
 #include "Transition.h"
 #include "State.h"
-#include <stdafx.h>
 bool Transition::canTrigger() 
 {
 	return m_condition->check();

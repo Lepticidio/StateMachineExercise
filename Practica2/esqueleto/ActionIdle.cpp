@@ -1,6 +1,6 @@
+#include "stdafx.h"
 #include "ActionIdle.h"
 #include "character.h"
-#include <stdafx.h>
 ActionIdle::ActionIdle(Character* _pOwner) : m_pOwner(_pOwner)
 {
 }
