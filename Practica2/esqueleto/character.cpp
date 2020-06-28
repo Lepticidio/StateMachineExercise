@@ -11,6 +11,7 @@
 #include "ActionIdle.h"
 #include "ActionPursue.h"
 #include "CanSeeEnemy.h"
+#include "NotCondition.h"
 
 USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 {
@@ -20,6 +21,7 @@ USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 float Character::AngleBetweenVectors(USVec2D _v0, USVec2D _v1)
 {
 	float fDot = _v0.Dot(_v1);
+	fDot = (fDot < -1.0 ? -1.0 : (fDot > 1.0 ? 1.0 : fDot));
 	float fAngle = acos(fDot);
 	float fDegrees = fAngle* 57.2958f;
 	return fDegrees;
@@ -185,6 +187,12 @@ int Character::_checkIsEnemy(lua_State* L)
 		pIdleToPursue->setCondition(pCanSee);
 		pIdleToPursue->setTargetState(pursueState);
 		idleState->AddTransition(pIdleToPursue);
+
+		NotCondition* pCanNotSee = new NotCondition(pCanSee);
+		Transition* pPursueToIdle = new Transition();
+		pPursueToIdle->setCondition(pCanNotSee);
+		pPursueToIdle->setTargetState(idleState);
+		pursueState->AddTransition(pPursueToIdle);
 
 		SM* pDragonStateMachine = new SM();
 		pDragonStateMachine->start(idleState);

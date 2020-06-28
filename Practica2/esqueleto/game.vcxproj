@@ -139,6 +139,7 @@
     <ClCompile Include="host\GlutHost.cpp" />
     <ClCompile Include="host\GlutHostMain.cpp" />
     <ClCompile Include="host\ParticlePresets.cpp" />
+    <ClCompile Include="NotCondition.cpp" />
     <ClCompile Include="OrCondition.cpp" />
     <ClCompile Include="params.cpp" />
     <ClCompile Include="Path.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="host\FolderWatcher-win.h" />
     <ClInclude Include="host\GlutHost.h" />
     <ClInclude Include="host\ParticlePresets.h" />
+    <ClInclude Include="NotCondition.h" />
     <ClInclude Include="OrCondition.h" />
     <ClInclude Include="params.h" />
     <ClInclude Include="Path.h" />

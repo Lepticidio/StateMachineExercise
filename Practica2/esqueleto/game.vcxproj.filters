@@ -46,6 +46,7 @@
     <ClCompile Include="CanSeeEnemy.cpp" />
     <ClCompile Include="ActionIdle.cpp" />
     <ClCompile Include="ActionPursue.cpp" />
+    <ClCompile Include="NotCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="CanSeeEnemy.h" />
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionPursue.h" />
+    <ClInclude Include="NotCondition.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="host">
