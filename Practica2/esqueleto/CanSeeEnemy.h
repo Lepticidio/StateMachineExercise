@@ -1,6 +1,5 @@
 #pragma once
 #include "Condition.h"
-#include <stdafx.h>
 
 class Character;
 class CanSeeEnemy : public Condition

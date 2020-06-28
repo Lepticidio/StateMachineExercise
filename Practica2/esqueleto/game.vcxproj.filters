@@ -47,6 +47,10 @@
     <ClCompile Include="ActionIdle.cpp" />
     <ClCompile Include="ActionPursue.cpp" />
     <ClCompile Include="NotCondition.cpp" />
+    <ClCompile Include="AttackAction.cpp" />
+    <ClCompile Include="ActionWindup.cpp" />
+    <ClCompile Include="NearCondition.cpp" />
+    <ClCompile Include="CooldownTimeCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -92,6 +96,10 @@
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionPursue.h" />
     <ClInclude Include="NotCondition.h" />
+    <ClInclude Include="AttackAction.h" />
+    <ClInclude Include="ActionWindup.h" />
+    <ClInclude Include="NearCondition.h" />
+    <ClInclude Include="CooldownTimeCondition.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="host">

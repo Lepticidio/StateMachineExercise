@@ -121,6 +121,10 @@ void Character::DrawDebug()
 	gfxDevice.SetPenColor(1.0f, 1.0f, 0.0f, 0.5f);
 	MOAIDraw::DrawLine(GetLoc(), GetLoc() + GetLinearVelocity());
 }
+void Character::IncreaseTime()
+{
+	m_fCooldownTime = m_fCooldownTime + GetLastStep();
+}
 
 
 // Lua configuration
