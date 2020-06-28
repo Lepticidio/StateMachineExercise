@@ -6,7 +6,7 @@
 #include "PathFollowingSteering.h"
 #include "PursueSteering.h"
 #include "AlignToMovement.h"
-#include "PathFollowingSteering.h"
+#include "ArriveSteering.h"
 
 USVec2D Character::RotateVector(USVec2D _vInitialVector, float _fAngle)
 {
@@ -33,7 +33,6 @@ Character::Character() : mLinearVelocity(00.0f, 0.0f), mAngularVelocity(0.0f)
 		const char* sPathName = "path.xml";
 		m_pPath = new Path(sPathName);
 		m_pPathSteering = new PathFollowingSteering(m_pSeek, m_pPath, this);
-		m_pPursueSteering = new PursueSteering(m_pArrive, this);
 }
 
 Character::~Character()
@@ -62,6 +61,7 @@ void Character::OnUpdate(float step)
 	//USVec2D vAcceleration = m_pSeek->GetSteering(mParams.targetPosition); 
 	//USVec2D vAcceleration = m_pArrive->GetSteering(mParams.targetPosition);
 	
+	m_fLastStep = step;
 	USVec2D vAcceleration(0, 0);
 	if (m_bIsEnemy)
 	{
@@ -76,7 +76,7 @@ void Character::OnUpdate(float step)
 	}
 	else
 	{
-		vAcceleration = m_pPursueSteering->GetSteering();
+		//vAcceleration = m_pPursueSteering->GetSteering();
 	}
 	//USVec2D vAcceleration = m_pPathSteering->GetSteering();
 	//USVec2D vAcceleration (0,0);
@@ -114,11 +114,6 @@ void Character::DrawDebug()
 	//m_pPath->DrawDebug();
 	gfxDevice.SetPenColor(1.0f, 1.0f, 0.0f, 0.5f);
 	MOAIDraw::DrawLine(GetLoc(), GetLoc() + GetLinearVelocity());
-}
-
-void Character::SetPursuedCharacter(Character* _pPursued)
-{ 
-	m_pPursueSteering->SetTarget(_pPursued);
 }
 
 
@@ -171,7 +166,7 @@ int Character::_checkIsEnemy(lua_State* L)
 	{	
 		Character* pToBePursued = state.GetLuaObject<Character>(3, 0.0f);
 		self->SetParamsName("params_enemy.xml");
-		self->SetPursuedCharacter(pToBePursued);
+		//self->SetPursuedCharacter(pToBePursued);
 	}
 
 	return 0;
