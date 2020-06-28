@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ActionIdle.cpp" />
     <ClCompile Include="AlignSteering.cpp" />
     <ClCompile Include="AlignToMovement.cpp" />
     <ClCompile Include="AndCondition.cpp" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="AlignSteering.h" />
     <ClInclude Include="AlignToMovement.h" />
     <ClInclude Include="AndCondition.h" />
