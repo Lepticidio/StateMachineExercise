@@ -184,6 +184,7 @@ int Character::_checkIsEnemy(lua_State* L)
 		Transition* pIdleToPursue = new Transition();
 		pIdleToPursue->setCondition(pCanSee);
 		pIdleToPursue->setTargetState(pursueState);
+		idleState->AddTransition(pIdleToPursue);
 
 		SM* pDragonStateMachine = new SM();
 		pDragonStateMachine->start(idleState);

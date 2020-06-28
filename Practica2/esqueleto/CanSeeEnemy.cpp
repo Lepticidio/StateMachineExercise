@@ -1,5 +1,6 @@
 #include "CanSeeEnemy.h"
 #include "character.h"
+#include <stdafx.h>
 
 CanSeeEnemy::CanSeeEnemy(Character* _pOwner, Character* _pEnemy) : m_pOwner(_pOwner), m_pEnemy(_pEnemy)
 {

@@ -8,7 +8,7 @@ class Transition
 	State* m_targetState;
 	Action* m_triggerAction;
 public:
-	bool canTrigger() const;
+	bool canTrigger() ;
 	State* trigger();
 	void setCondition(Condition* _pCondition) { m_condition = _pCondition; };
 	void setTargetState(State* _pState) { m_targetState = _pState; };

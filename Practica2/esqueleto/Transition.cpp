@@ -1,5 +1,7 @@
 #include "Transition.h"
-bool Transition::canTrigger() const
+#include "State.h"
+#include <stdafx.h>
+bool Transition::canTrigger() 
 {
 	return m_condition->check();
 }

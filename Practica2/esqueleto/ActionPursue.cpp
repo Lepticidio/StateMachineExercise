@@ -1,6 +1,7 @@
 #include "ActionPursue.h"
 #include "character.h"
 #include "PursueSteering.h"
+#include <stdafx.h>
 ActionPursue::ActionPursue(Character* _pOwner, Character* _pTarget) : m_pOwner(_pOwner)
 {
 	m_pPursueSteering = new PursueSteering(m_pOwner->GetArrive(), m_pOwner);

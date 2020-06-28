@@ -1,4 +1,6 @@
 #include "State.h"
+#include <stdafx.h>
+#include "Transition.h"
 void State::onEnter()
 {
 	m_enterAction->start();
@@ -13,7 +15,7 @@ void State::onExit()
 	m_stateAction->end();
 	m_exitAction->start();
 }
-const std::vector<Transition>& State::getTransitions()
+const std::vector<Transition*>& State::getTransitions()
 {
 	return m_transitions;
 }
