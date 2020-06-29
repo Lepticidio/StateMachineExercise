@@ -1,6 +1,6 @@
 #pragma once
 #include "Condition.h"
-class AndCondition : Condition
+class AndCondition : public Condition
 {
 public:
 	AndCondition(Condition* c1, Condition* c2);

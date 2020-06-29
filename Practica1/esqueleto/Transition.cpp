@@ -1,10 +1,15 @@
+#include "stdafx.h"
 #include "Transition.h"
-bool Transition::canTrigger() const
+#include "State.h"
+bool Transition::canTrigger() 
 {
 	return m_condition->check();
 }
 State* Transition::trigger()
 {
-	m_triggerAction->start();
+	if (m_triggerAction != nullptr)
+	{
+		m_triggerAction->start();
+	}
 	return m_targetState;
 }

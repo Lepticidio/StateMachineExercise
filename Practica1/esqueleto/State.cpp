@@ -1,19 +1,35 @@
+#include "stdafx.h"
 #include "State.h"
 void State::onEnter()
 {
-	m_enterAction->start();
-	m_stateAction->start();
+	if (m_enterAction != nullptr)
+	{
+		m_enterAction->start();
+	}
+	if (m_stateAction != nullptr)
+	{
+		m_stateAction->start();
+	}
 }
 void State::update()
 {
-	m_stateAction->update();
+	if (m_stateAction != nullptr)
+	{
+		m_stateAction->update();
+	}
 }
 void State::onExit()
 {
-	m_stateAction->end();
-	m_exitAction->start();
+	if (m_stateAction != nullptr)
+	{
+		m_stateAction->end();
+	}
+	if (m_exitAction != nullptr)
+	{
+		m_exitAction->start();
+	}
 }
-const std::vector<Transition>& State::getTransitions()
+const std::vector<Transition*>& State::getTransitions()
 {
 	return m_transitions;
 }
